@@ -22,16 +22,22 @@ RUN pip install -e .
 # Create directories for data and models
 RUN mkdir -p /app/data/raw /app/data/processed /app/models /app/outputs
 
+# Create a dummy model directory structure for testing
+RUN mkdir -p /app/models/dummy-model
+# Create a minimal config.json in the dummy model directory
+RUN echo '{"model_type": "bert", "architectures": ["BertForSequenceClassification"]}' > /app/models/dummy-model/config.json
+
 # Set environment variables
 ENV PYTHONPATH=/app
-ENV MODEL_PATH="/app/models"
+ENV MODEL_PATH="/app/models/dummy-model"
 ENV LOG_LEVEL="INFO"
+ENV SKIP_MODEL_LOAD="true"
 
 # Expose port for API
 EXPOSE 8000
 
-# Set entrypoint
-ENTRYPOINT ["python", "scripts/start_server.py"]
+# Set entrypoint (using minimal server for testing)
+ENTRYPOINT ["python", "scripts/minimal_server.py"]
 
-# Default arguments
-CMD ["--model_path", "/app/models", "--host", "0.0.0.0", "--port", "8000"]
+# Default arguments (for start_server.py, not used with minimal_server.py)
+# CMD ["--model_path", "/app/models/dummy-model", "--host", "0.0.0.0", "--port", "8000", "--skip_model_load", "true"]

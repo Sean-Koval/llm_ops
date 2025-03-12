@@ -47,7 +47,73 @@ This will start:
 - Prometheus on port 9090
 - Grafana on port 3000 (default credentials: admin/admin)
 
-#### Option 2: Deploying to Google Kubernetes Engine (GKE)
+You can also use the Makefile for convenience:
+
+```bash
+# Start services
+make compose-up
+
+# View logs
+make compose-logs
+
+# Stop services
+make compose-down
+```
+
+#### Option 2: Local Deployment with Docker Compose
+
+For the simplest local deployment without Kubernetes:
+
+```bash
+# Make scripts executable
+make setup-scripts
+
+# Deploy using Docker Compose
+make docker-deploy
+
+# Check logs
+make compose-logs
+
+# Clean up when done
+make docker-cleanup
+```
+
+This approach skips Kubernetes entirely and uses plain Docker Compose, which is more reliable in WSL2/Windows environments.
+
+#### Option 3: Using Kubernetes with Minikube in WSL2/Windows
+
+For testing Kubernetes deployments with Docker Desktop/WSL2 setup:
+
+1. **Prerequisites**:
+   - Docker Desktop installed on Windows with Kubernetes enabled
+   - WSL2 configured with kubectl installed
+   - Kubectl configured to use the Kubernetes in Docker Desktop
+
+2. **Setup**:
+   ```bash
+   # Make scripts executable
+   make setup-scripts
+
+   # Deploy services to Kubernetes
+   make minikube-setup
+
+   # Forward ports to access services
+   make port-forward
+
+   # Test the deployment
+   make test-deployment
+
+   # Clean up resources
+   make minikube-cleanup
+   ```
+
+3. **Accessing services**:
+   - API: http://localhost:8000
+   - MLflow: http://localhost:5000
+   - Prometheus: http://localhost:9090
+   - Grafana: http://localhost:3000 (default credentials: admin/admin)
+
+#### Option 3: Deploying to Google Kubernetes Engine (GKE)
 
 For production deployments, follow these steps to deploy to GKE:
 
@@ -94,6 +160,36 @@ kubectl get service llm-api-service
 # Scale the API deployment
 kubectl scale deployment llm-api --replicas=3
 ```
+
+#### Option 4: Automatic Deployment with GitHub Actions
+
+This repository includes a GitHub Actions workflow for automatically deploying to GKE:
+
+1. **Set up GitHub Secrets**
+
+Add the following secrets to your GitHub repository:
+- `GCP_PROJECT_ID`: Your Google Cloud project ID (e.g., `sk-ml-inference`)
+- `GCP_SA_KEY`: Your Google Cloud service account key (the entire JSON content of credentials.json)
+
+2. **Enable GitHub Actions**
+
+The workflow will automatically deploy to GKE when pushing to the main branch.
+
+```bash
+# View deployment status
+https://github.com/yourusername/llm_ops_pipeline/actions
+```
+
+3. **Manual Deployment**
+
+You can also trigger a manual deployment from the GitHub Actions tab by using the "workflow_dispatch" event.
+
+4. **Troubleshooting**
+
+If you encounter issues with the GitHub Actions workflow:
+- Check that your service account has the necessary permissions
+- Verify that the GKE cluster name matches the one in the workflow file
+- Look at the detailed logs in the GitHub Actions tab
 
 ## End-to-End Workflow Examples
 
@@ -150,7 +246,7 @@ After training, you can deploy your model:
 python scripts/start_server.py --model-path ./models/sentiment-classification
 
 # Or, use Docker Compose to deploy the full stack
-docker-compose up -d
+docker compose up -d
 ```
 
 ### 3. Running Inference
@@ -203,12 +299,42 @@ tests/
 └── integration/     # Integration tests
 ```
 
-## Contributing
+## Setting Up CI/CD with Google Cloud and GitHub
 
-Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
+To set up continuous deployment to Google Kubernetes Engine:
+
+1. **Create a Google Cloud Service Account**
+
+```bash
+# Create a service account
+gcloud iam service-accounts create github-actions
+
+# Assign necessary roles
+gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
+    --member="serviceAccount:github-actions@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
+    --role="roles/container.developer"
+    
+gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
+    --member="serviceAccount:github-actions@YOUR_PROJECT_ID.iam.gserviceaccount.com" \
+    --role="roles/storage.admin"
+
+# Create and download a JSON key
+gcloud iam service-accounts keys create credentials.json \
+    --iam-account=github-actions@YOUR_PROJECT_ID.iam.gserviceaccount.com
+```
+
+2. **Add Secrets to GitHub**
+
+- Go to your GitHub repository > Settings > Secrets and variables > Actions
+- Create a new repository secret `GCP_PROJECT_ID` with your Google Cloud project ID
+- Create a new repository secret `GCP_SA_KEY` with the entire content of your `credentials.json` file
+
+3. **Secure Your Service Account Key**
+
+Once you've added the key to GitHub Secrets, make sure to:
+- Delete the local copy of `credentials.json`
+- Add `credentials.json` to your `.gitignore` file (already included)
 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-https://github.com/marketplace/actions/test-llm-outputs
