@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlflow
+  labels:
+    app: mlflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mlflow
+  template:
+    metadata:
+      labels:
+        app: mlflow
+    spec:
+      containers:
+      - name: mlflow
+        image: ghcr.io/mlflow/mlflow:latest
+        ports:
+        - containerPort: 5000
+        args:
+        - "mlflow"
+        - "server"
+        - "--backend-store-uri"
+        - "sqlite:///mlflow/mlflow.db"
+        - "--default-artifact-root"
+        - "/mlflow/artifacts"
+        - "--host"
+        - "0.0.0.0"
+        volumeMounts:
+        - name: mlflow-volume
+          mountPath: /mlflow
+      volumes:
+      - name: mlflow-volume
+        persistentVolumeClaim:
+          claimName: mlflow-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mlflow-service
+spec:
+  selector:
+    app: mlflow
+  ports:
+  - port: 80
+    targetPort: 5000
+  type: LoadBalancer

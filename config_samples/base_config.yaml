@@ -1,0 +1,28 @@
+model:
+  model_name: "gpt2"
+  model_size: "base"
+  tokenizer: null
+  max_length: 512
+
+training:
+  batch_size: 16
+  learning_rate: 5.0e-5
+  num_epochs: 3
+  warmup_steps: 500
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+  fp16: false
+  seed: 42
+
+data:
+  train_path: "data/processed/train.jsonl"
+  eval_path: "data/processed/eval.jsonl"
+  test_path: "data/processed/test.jsonl"
+  data_cache_dir: "./cache"
+
+experiment_name: "llm_fine_tuning"
+output_dir: "./outputs"
+logging_steps: 100
+eval_steps: 500
+save_steps: 1000
+track_with: "wandb"

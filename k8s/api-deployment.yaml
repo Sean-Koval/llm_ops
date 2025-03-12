@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-api
+  labels:
+    app: llm-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: llm-api
+  template:
+    metadata:
+      labels:
+        app: llm-api
+    spec:
+      containers:
+      - name: llm-api
+        image: gcr.io/YOUR_PROJECT_ID/llm-ops-pipeline:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: MODEL_PATH
+          value: "/app/models"
+        - name: LOG_LEVEL
+          value: "INFO"
+        volumeMounts:
+        - name: models-volume
+          mountPath: /app/models
+        - name: config-volume
+          mountPath: /app/config_samples
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+      volumes:
+      - name: models-volume
+        persistentVolumeClaim:
+          claimName: models-pvc
+      - name: config-volume
+        persistentVolumeClaim:
+          claimName: config-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: llm-api-service
+spec:
+  selector:
+    app: llm-api
+  ports:
+  - port: 80
+    targetPort: 8000
+  type: LoadBalancer
