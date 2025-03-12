@@ -1,0 +1,131 @@
+{
+  "accuracy": 0.9666666666666667,
+  "precision_macro": 0.969640522875817,
+  "recall_macro": 0.9673141673141673,
+  "f1_macro": 0.9679002515336471,
+  "precision_by_category": {
+    "ETHICAL_BREACH": 0.9411764705882353,
+    "ILLEGAL_ACTIVITY": 1.0,
+    "REGULATORY_VIOLATION": 0.9166666666666666,
+    "CONFIDENTIAL_INFO": 1.0,
+    "HARASSMENT": 1.0,
+    "COMPLIANT": 0.96
+  },
+  "recall_by_category": {
+    "ETHICAL_BREACH": 0.9696969696969697,
+    "ILLEGAL_ACTIVITY": 0.9444444444444444,
+    "REGULATORY_VIOLATION": 1.0,
+    "CONFIDENTIAL_INFO": 0.9666666666666667,
+    "HARASSMENT": 1.0,
+    "COMPLIANT": 0.9230769230769231
+  },
+  "f1_by_category": {
+    "ETHICAL_BREACH": 0.9552238805970149,
+    "ILLEGAL_ACTIVITY": 0.9714285714285714,
+    "REGULATORY_VIOLATION": 0.9565217391304348,
+    "CONFIDENTIAL_INFO": 0.9830508474576272,
+    "HARASSMENT": 1.0,
+    "COMPLIANT": 0.9411764705882353
+  },
+  "confusion_matrix": [
+    [
+      32,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      17,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      22,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      29,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      21,
+      0
+    ],
+    [
+      2,
+      0,
+      0,
+      0,
+      0,
+      24
+    ]
+  ],
+  "latency": {
+    "avg_ms": 200.1675361691897,
+    "p50_ms": 203.3724079664911,
+    "p95_ms": 286.5282266346762,
+    "p99_ms": 298.2512779426814,
+    "total_time_s": 0.00010418891906738281,
+    "throughput_per_s": 1439692.4485125858
+  },
+  "errors": [
+    {
+      "text": "I'm attaching the unreleased financial statements for next quarter.",
+      "true_label": "CONFIDENTIAL_INFO",
+      "predicted_label": "COMPLIANT",
+      "confidence": 0.7138364655651709,
+      "index": 22
+    },
+    {
+      "text": "I know the investment isn't suitable for them, but we need to hit our sales targets.",
+      "true_label": "ETHICAL_BREACH",
+      "predicted_label": "REGULATORY_VIOLATION",
+      "confidence": 0.6580909999999864,
+      "index": 56
+    },
+    {
+      "text": "The quarterly report was published this morning, and it shows strong performance as expected.",
+      "true_label": "COMPLIANT",
+      "predicted_label": "ETHICAL_BREACH",
+      "confidence": 0.78877215277016,
+      "index": 76
+    },
+    {
+      "text": "We can use these shell companies to hide where the money is really coming from.",
+      "true_label": "ILLEGAL_ACTIVITY",
+      "predicted_label": "REGULATORY_VIOLATION",
+      "confidence": 0.8303214757545772,
+      "index": 95
+    },
+    {
+      "text": "I've documented all the customer interactions as per our company policy.",
+      "true_label": "COMPLIANT",
+      "predicted_label": "ETHICAL_BREACH",
+      "confidence": 0.6468739510996138,
+      "index": 148
+    }
+  ],
+  "error_count": 5,
+  "error_rate": 0.03333333333333333,
+  "total_examples": 150,
+  "timestamp": "2025-03-12T02:14:50.266641",
+  "model_id": "gemini-1.5-flash-simulation",
+  "prompt_name": "few_shot_production"
+}

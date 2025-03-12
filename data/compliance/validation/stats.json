@@ -1,0 +1,13 @@
+{
+  "count": 150,
+  "category_distribution": {
+    "ETHICAL_BREACH": 25,
+    "ILLEGAL_ACTIVITY": 22,
+    "REGULATORY_VIOLATION": 22,
+    "CONFIDENTIAL_INFO": 24,
+    "HARASSMENT": 23,
+    "COMPLIANT": 34
+  },
+  "avg_length": 12.853333333333333,
+  "generated_at": "2025-03-12T02:08:21.018655"
+}

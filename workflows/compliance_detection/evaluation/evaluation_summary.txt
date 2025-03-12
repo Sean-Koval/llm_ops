@@ -1,0 +1,82 @@
+Compliance Detection Evaluation Summary
+======================================
+
+Date: 2025-03-12 02:14:50
+Model: gemini-1.5-flash-simulation
+Prompt: few_shot_production
+
+Overall Metrics:
+  Accuracy: 0.9667
+  Precision (macro): 0.9696
+  Recall (macro): 0.9673
+  F1 Score (macro): 0.9679
+
+Metrics by Category:
+  ETHICAL_BREACH:
+    Precision: 0.9412
+    Recall: 0.9697
+    F1 Score: 0.9552
+  ILLEGAL_ACTIVITY:
+    Precision: 1.0000
+    Recall: 0.9444
+    F1 Score: 0.9714
+  REGULATORY_VIOLATION:
+    Precision: 0.9167
+    Recall: 1.0000
+    F1 Score: 0.9565
+  CONFIDENTIAL_INFO:
+    Precision: 1.0000
+    Recall: 0.9667
+    F1 Score: 0.9831
+  HARASSMENT:
+    Precision: 1.0000
+    Recall: 1.0000
+    F1 Score: 1.0000
+  COMPLIANT:
+    Precision: 0.9600
+    Recall: 0.9231
+    F1 Score: 0.9412
+
+Latency:
+  Average: 200.17 ms
+  50th Percentile: 203.37 ms
+  95th Percentile: 286.53 ms
+  99th Percentile: 298.25 ms
+  Throughput: 1439692.45 requests/second
+
+Error Analysis:
+  Total Examples: 150
+  Error Count: 5
+  Error Rate: 0.0333
+
+Top Error Examples:
+  Example 1:
+    Text: I'm attaching the unreleased financial statements for next quarter.
+    True Label: CONFIDENTIAL_INFO
+    Predicted Label: COMPLIANT
+    Confidence: 0.7138
+
+  Example 2:
+    Text: I know the investment isn't suitable for them, but we need to hit our sales targets.
+    True Label: ETHICAL_BREACH
+    Predicted Label: REGULATORY_VIOLATION
+    Confidence: 0.6581
+
+  Example 3:
+    Text: The quarterly report was published this morning, and it shows strong performance as expected.
+    True Label: COMPLIANT
+    Predicted Label: ETHICAL_BREACH
+    Confidence: 0.7888
+
+  Example 4:
+    Text: We can use these shell companies to hide where the money is really coming from.
+    True Label: ILLEGAL_ACTIVITY
+    Predicted Label: REGULATORY_VIOLATION
+    Confidence: 0.8303
+
+  Example 5:
+    Text: I've documented all the customer interactions as per our company policy.
+    True Label: COMPLIANT
+    Predicted Label: ETHICAL_BREACH
+    Confidence: 0.6469
+

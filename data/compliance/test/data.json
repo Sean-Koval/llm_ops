@@ -1,0 +1,1502 @@
+[
+  {
+    "text": "I know the investment isn't suitable for them, but we need to hit our sales targets.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006482",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_52"
+    }
+  },
+  {
+    "text": "Let's move these funds through our offshore accounts to avoid detection.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006832",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_34"
+    }
+  },
+  {
+    "text": "Don't tell the clients about the hidden fees, they'll never notice.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006364",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_13"
+    }
+  },
+  {
+    "text": "Don't worry about documenting the client's risk profile, I'll take care of it later.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007524",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_140"
+    }
+  },
+  {
+    "text": "That new analyst is only here because she's attractive, not because of her skills.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008688",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_148"
+    }
+  },
+  {
+    "text": "Here's the complete client list with their account balances and SSNs.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007694",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_6"
+    }
+  },
+  {
+    "text": "That new analyst is only here because she's attractive, not because of her skills.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008624",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_124"
+    }
+  },
+  {
+    "text": "Let's not assign this project to her. Women aren't good with technical matters.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008520",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_83"
+    }
+  },
+  {
+    "text": "Did you see what he was wearing today? He looks ridiculous and unprofessional.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008500",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_75"
+    }
+  },
+  {
+    "text": "The regulator doesn't need to know about this communication channel we use.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007208",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_19"
+    }
+  },
+  {
+    "text": "I know the asset isn't suitable for them, but we need to hit our sales targets.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006578",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_89"
+    }
+  },
+  {
+    "text": "I know the investment isn't suitable for them, but we need to hit our sales targets.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006706",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_137"
+    }
+  },
+  {
+    "text": "I know a way to manipulate the market for this small cap stock to boost our returns.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006959",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_83"
+    }
+  },
+  {
+    "text": "I've documented all the customer interactions as per our company policy.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008911",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_87"
+    }
+  },
+  {
+    "text": "I've completed the risk assessment for the new client and added it to their file.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008969",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_106"
+    }
+  },
+  {
+    "text": "I can guarantee you'll make at least 20% returns on this investment strategy.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006664",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_121"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.008065",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_135"
+    }
+  },
+  {
+    "text": "I wouldn't trust someone from his cultural background with sensitive client information.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008680",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_145"
+    }
+  },
+  {
+    "text": "Let me share our proprietary trading algorithm with you for your feedback.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007740",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_22"
+    }
+  },
+  {
+    "text": "Just skip the know-your-customer process for this client, they're a VIP.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007520",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_138"
+    }
+  },
+  {
+    "text": "Here's access to our internal research database - don't tell anyone I gave it to you.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007722",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_16"
+    }
+  },
+  {
+    "text": "I know a way to manipulate the market for this small cap stock to boost our returns.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006761",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_6"
+    }
+  },
+  {
+    "text": "I'm attaching the unreleased financial statements for next quarter.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.008080",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_138"
+    }
+  },
+  {
+    "text": "Let's just adjust these numbers slightly before showing them to the regulators.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006654",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_117"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007812",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_49"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.008061",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_134"
+    }
+  },
+  {
+    "text": "Let's schedule a meeting to review the compliance requirements for this new product.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.009005",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_120"
+    }
+  },
+  {
+    "text": "The market volatility requires us to rebalance portfolios according to client risk profiles.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008799",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_42"
+    }
+  },
+  {
+    "text": "Don't tell the clients about the hidden fees, they'll never notice.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006634",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_110"
+    }
+  },
+  {
+    "text": "I can guarantee you'll make at least 20% returns on this investment strategy.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006477",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_50"
+    }
+  },
+  {
+    "text": "Don't worry about documenting the client's risk profile, I'll take care of it later.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007490",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_127"
+    }
+  },
+  {
+    "text": "Let's schedule a meeting to review the compliance requirements for this new product.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007202",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_17"
+    }
+  },
+  {
+    "text": "I'm attaching the unreleased financial statements for next quarter.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007981",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_114"
+    }
+  },
+  {
+    "text": "Here's access to our internal research database - don't tell anyone I gave it to you.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007799",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_44"
+    }
+  },
+  {
+    "text": "I can help you structure these transactions to stay under the reporting threshold.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006975",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_90"
+    }
+  },
+  {
+    "text": "Here's access to our internal research database - don't tell anyone I gave it to you.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007940",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_99"
+    }
+  },
+  {
+    "text": "Let's not assign this project to her. Women aren't good with technical matters.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008550",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_95"
+    }
+  },
+  {
+    "text": "Don't tell the clients about the hidden fees, they'll never notice.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006360",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_11"
+    }
+  },
+  {
+    "text": "The quarterly report was published this morning, and it shows strong performance as expected.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008980",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_110"
+    }
+  },
+  {
+    "text": "Did you see what he was wearing today? He looks ridiculous and unprofessional.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008230",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_17"
+    }
+  },
+  {
+    "text": "I can guarantee you'll make at least 20% returns on this investment strategy.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006430",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_35"
+    }
+  },
+  {
+    "text": "You're too old to understand how modern trading systems work.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008539",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_90"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007913",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_88"
+    }
+  },
+  {
+    "text": "I know the investment isn't suitable for them, but we need to hit our sales targets.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006329",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_1"
+    }
+  },
+  {
+    "text": "I'll give you special access if you refer your high-net-worth clients to me.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006622",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_106"
+    }
+  },
+  {
+    "text": "Don't tell the clients about the hidden fees, they'll never notice.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006549",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_79"
+    }
+  },
+  {
+    "text": "I'm attaching the unreleased financial statements for next quarter.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007934",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_96"
+    }
+  },
+  {
+    "text": "The earnings report looks great - tell your clients to buy before it's released tomorrow.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007237",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_31"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007903",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_84"
+    }
+  },
+  {
+    "text": "I'm attaching the unreleased financial statements for next quarter.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007962",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_107"
+    }
+  },
+  {
+    "text": "That new analyst is only here because she's attractive, not because of her skills.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008525",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_85"
+    }
+  },
+  {
+    "text": "Let's move these funds through our offshore accounts to avoid detection.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006966",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_86"
+    }
+  },
+  {
+    "text": "I can help you structure these transactions to stay under the reporting threshold.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006896",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_58"
+    }
+  },
+  {
+    "text": "Don't worry about documenting the client's risk profile, I'll take care of it later.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007376",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_84"
+    }
+  },
+  {
+    "text": "I'll give you special access if you refer your high-net-worth clients to me.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006709",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_139"
+    }
+  },
+  {
+    "text": "I've completed the risk assessment for the new client and added it to their file.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007164",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_3"
+    }
+  },
+  {
+    "text": "I know the investment isn't suitable for them, but we need to hit our sales targets.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006508",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_62"
+    }
+  },
+  {
+    "text": "You're too old to understand how modern trading systems work.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008433",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_61"
+    }
+  },
+  {
+    "text": "You're too old to understand how modern trading systems work.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008626",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_125"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.008136",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_147"
+    }
+  },
+  {
+    "text": "I heard from the CEO that they're about to announce a merger, we should buy now.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007257",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_39"
+    }
+  },
+  {
+    "text": "Don't tell the clients about the hidden fees, they'll never notice.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006435",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_37"
+    }
+  },
+  {
+    "text": "I know a way to manipulate the market for this small cap stock to boost our returns.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006880",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_53"
+    }
+  },
+  {
+    "text": "I've completed the risk assessment for the new client and added it to their file.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008791",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_39"
+    }
+  },
+  {
+    "text": "The quarterly report was published this morning, and it shows strong performance as expected.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008985",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_112"
+    }
+  },
+  {
+    "text": "Let's schedule a meeting to review the compliance requirements for this new product.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.009183",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_183"
+    }
+  },
+  {
+    "text": "Let me share our proprietary trading algorithm with you for your feedback.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007867",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_71"
+    }
+  },
+  {
+    "text": "The regulator doesn't need to know about this communication channel we use.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007431",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_106"
+    }
+  },
+  {
+    "text": "I know the investment isn't suitable for them, but we need to hit our sales targets.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006390",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_22"
+    }
+  },
+  {
+    "text": "Don't tell the clients about the hidden fees, they'll never notice.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006474",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_49"
+    }
+  },
+  {
+    "text": "You're too old to understand how modern trading systems work.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008685",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_147"
+    }
+  },
+  {
+    "text": "The market volatility requires us to rebalance portfolios according to client risk profiles.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008811",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_46"
+    }
+  },
+  {
+    "text": "Don't tell the clients about the hidden fees, they'll never notice.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006643",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_113"
+    }
+  },
+  {
+    "text": "Did you see what he was wearing today? He looks ridiculous and unprofessional.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008268",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_25"
+    }
+  },
+  {
+    "text": "I'll give you special access if you refer your high-net-worth clients to me.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006514",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_64"
+    }
+  },
+  {
+    "text": "Don't tell the clients about the hidden fees, they'll never notice.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006506",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_61"
+    }
+  },
+  {
+    "text": "The quarterly report was published this morning, and it shows strong performance as expected.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008732",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_16"
+    }
+  },
+  {
+    "text": "I'll give you special access if you refer your high-net-worth clients to me.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006485",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_53"
+    }
+  },
+  {
+    "text": "The market volatility requires us to rebalance portfolios according to client risk profiles.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.009101",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_151"
+    }
+  },
+  {
+    "text": "I wouldn't trust someone from his cultural background with sensitive client information.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008649",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_133"
+    }
+  },
+  {
+    "text": "That new analyst is only here because she's attractive, not because of her skills.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008361",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_46"
+    }
+  },
+  {
+    "text": "I know a way to manipulate the market for this small cap stock to boost our returns.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006777",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_12"
+    }
+  },
+  {
+    "text": "I can guarantee you'll make at least 20% returns on this investment strategy.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006444",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_40"
+    }
+  },
+  {
+    "text": "Let's just adjust these numbers slightly before showing them to the regulators.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006733",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_147"
+    }
+  },
+  {
+    "text": "Let's schedule a meeting to review the compliance requirements for this new product.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.009154",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_172"
+    }
+  },
+  {
+    "text": "Let's schedule a meeting to review the compliance requirements for this new product.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008775",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_32"
+    }
+  },
+  {
+    "text": "Here's the complete client list with their account balances and SSNs.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007984",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_115"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.008083",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_139"
+    }
+  },
+  {
+    "text": "The earnings report looks great - tell your clients to buy before it's released tomorrow.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007656",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_192"
+    }
+  },
+  {
+    "text": "I know the investment isn't suitable for them, but we need to hit our sales targets.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006523",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_68"
+    }
+  },
+  {
+    "text": "The quarterly report was published this morning, and it shows strong performance as expected.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.009095",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_149"
+    }
+  },
+  {
+    "text": "I can guarantee you'll make at least 20% returns on this investment strategy.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006470",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_48"
+    }
+  },
+  {
+    "text": "That new analyst is only here because she's attractive, not because of her skills.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008239",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_19"
+    }
+  },
+  {
+    "text": "The regulator doesn't need to know about this communication channel we use.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007285",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_50"
+    }
+  },
+  {
+    "text": "I've completed the risk assessment for the new client and added it to their file.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008750",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_22"
+    }
+  },
+  {
+    "text": "We can use these shell companies to hide where the money is really coming from.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.007053",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_119"
+    }
+  },
+  {
+    "text": "I've documented all the customer interactions as per our company policy.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.009140",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_166"
+    }
+  },
+  {
+    "text": "The regulator doesn't need to know about this communication channel we use.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007351",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_75"
+    }
+  },
+  {
+    "text": "We can use these shell companies to hide where the money is really coming from.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006857",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_44"
+    }
+  },
+  {
+    "text": "Here's the complete client list with their account balances and SSNs.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007685",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_2"
+    }
+  },
+  {
+    "text": "Don't worry about documenting the client's risk profile, I'll take care of it later.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007433",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_107"
+    }
+  },
+  {
+    "text": "I heard from the CEO that they're about to announce a merger, we should buy now.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007336",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_69"
+    }
+  },
+  {
+    "text": "I've documented all the customer interactions as per our company policy.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008927",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_93"
+    }
+  },
+  {
+    "text": "Here's access to our internal research database - don't tell anyone I gave it to you.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.008006",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_122"
+    }
+  },
+  {
+    "text": "I know the investment isn't suitable for them, but we need to hit our sales targets.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006379",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_17"
+    }
+  },
+  {
+    "text": "I've completed the risk assessment for the new client and added it to their file.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008805",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_44"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007691",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_5"
+    }
+  },
+  {
+    "text": "Here's access to our internal research database - don't tell anyone I gave it to you.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.008017",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_124"
+    }
+  },
+  {
+    "text": "We can backdate these trades to capture the better price from yesterday.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.007021",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_108"
+    }
+  },
+  {
+    "text": "I've completed the risk assessment for the new client and added it to their file.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008881",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_75"
+    }
+  },
+  {
+    "text": "I can guarantee you'll make at least 20% returns on this investment strategy.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006564",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_84"
+    }
+  },
+  {
+    "text": "That new analyst is only here because she's attractive, not because of her skills.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008628",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_126"
+    }
+  },
+  {
+    "text": "Here's access to our internal research database - don't tell anyone I gave it to you.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007837",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_58"
+    }
+  },
+  {
+    "text": "The regulator doesn't need to know about this communication channel we use.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007269",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_43"
+    }
+  },
+  {
+    "text": "I'll give you special access if you refer your high-net-worth clients to me.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006339",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_3"
+    }
+  },
+  {
+    "text": "The earnings report looks great - tell your clients to buy before it's released tomorrow.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007359",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_78"
+    }
+  },
+  {
+    "text": "I've documented all the customer interactions as per our company policy.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008864",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_67"
+    }
+  },
+  {
+    "text": "The regulator doesn't need to know about this communication channel we use.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007341",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_71"
+    }
+  },
+  {
+    "text": "The earnings report looks great - tell your clients to buy before it's released tomorrow.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007677",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_199"
+    }
+  },
+  {
+    "text": "Let's move these funds through our offshore accounts to avoid detection.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.007145",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_147"
+    }
+  },
+  {
+    "text": "Let's not assign this project to her. Women aren't good with technical matters.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008545",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_93"
+    }
+  },
+  {
+    "text": "Did you see what he was wearing today? He looks ridiculous and unprofessional.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008588",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_110"
+    }
+  },
+  {
+    "text": "Let me share our proprietary trading algorithm with you for your feedback.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007919",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_90"
+    }
+  },
+  {
+    "text": "The quarterly report was published this morning, and it shows strong performance as expected.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006828",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_32"
+    }
+  },
+  {
+    "text": "I've completed the risk assessment for the new client and added it to their file.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008760",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_26"
+    }
+  },
+  {
+    "text": "The market volatility requires us to rebalance portfolios according to client risk profiles.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.009118",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_158"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007842",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_60"
+    }
+  },
+  {
+    "text": "I know the investment isn't suitable for them, but we need to hit our sales targets.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006433",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_36"
+    }
+  },
+  {
+    "text": "I've completed the risk assessment for the new client and added it to their file.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008821",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_50"
+    }
+  },
+  {
+    "text": "Did you see what he was wearing today? He looks ridiculous and unprofessional.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008183",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_6"
+    }
+  },
+  {
+    "text": "Don't tell the clients about the hidden fees, they'll never notice.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006529",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_71"
+    }
+  },
+  {
+    "text": "Here's access to our internal research database - don't tell anyone I gave it to you.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007896",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_81"
+    }
+  },
+  {
+    "text": "We can backdate these trades to capture the better price from yesterday.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.007098",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_138"
+    }
+  },
+  {
+    "text": "We can backdate these trades to capture the better price from yesterday.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006834",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_35"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007754",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_27"
+    }
+  },
+  {
+    "text": "I've attached the customer credit card information you requested.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007778",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_36"
+    }
+  },
+  {
+    "text": "I'll give you special access if you refer your high-net-worth clients to me.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006386",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_20"
+    }
+  },
+  {
+    "text": "I know a way to manipulate the market for this small cap stock to boost our returns.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006798",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_20"
+    }
+  },
+  {
+    "text": "Let's schedule a meeting to review the compliance requirements for this new product.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.009103",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_152"
+    }
+  },
+  {
+    "text": "You're too old to understand how modern trading systems work.",
+    "label": "HARASSMENT",
+    "timestamp": "2025-03-12T02:08:21.008593",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "HARASSMENT_112"
+    }
+  },
+  {
+    "text": "Here's access to our internal research database - don't tell anyone I gave it to you.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007850",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_64"
+    }
+  },
+  {
+    "text": "The earnings report looks great - tell your clients to buy before it's released tomorrow.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007231",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_29"
+    }
+  },
+  {
+    "text": "I've completed the risk assessment for the new client and added it to their file.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.008914",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_88"
+    }
+  },
+  {
+    "text": "We can backdate these trades to capture the better price from yesterday.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006800",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_21"
+    }
+  },
+  {
+    "text": "The regulator doesn't need to know about this communication channel we use.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007441",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_110"
+    }
+  },
+  {
+    "text": "I know a way to manipulate the market for this small cap stock to boost our returns.",
+    "label": "ILLEGAL_ACTIVITY",
+    "timestamp": "2025-03-12T02:08:21.006968",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ILLEGAL_ACTIVITY_87"
+    }
+  },
+  {
+    "text": "Here's the complete client list with their account balances and SSNs.",
+    "label": "CONFIDENTIAL_INFO",
+    "timestamp": "2025-03-12T02:08:21.007881",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "CONFIDENTIAL_INFO_76"
+    }
+  },
+  {
+    "text": "I'll give you special access if you refer your high-net-worth clients to me.",
+    "label": "ETHICAL_BREACH",
+    "timestamp": "2025-03-12T02:08:21.006410",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "ETHICAL_BREACH_28"
+    }
+  },
+  {
+    "text": "I've documented all the customer interactions as per our company policy.",
+    "label": "COMPLIANT",
+    "timestamp": "2025-03-12T02:08:21.009134",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "COMPLIANT_163"
+    }
+  },
+  {
+    "text": "The earnings report looks great - tell your clients to buy before it's released tomorrow.",
+    "label": "REGULATORY_VIOLATION",
+    "timestamp": "2025-03-12T02:08:21.007379",
+    "metadata": {
+      "source": "synthetic",
+      "generator": "template-based",
+      "id": "REGULATORY_VIOLATION_85"
+    }
+  }
+]

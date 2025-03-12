@@ -1,0 +1,62 @@
+# Compliance Detection Configuration
+
+project:
+  name: compliance_detection
+  description: "LLM-based detection of compliance breaches in text messages"
+  version: "0.1.0"
+
+data:
+  train_path: "data/compliance/train"
+  eval_path: "data/compliance/eval"
+  test_path: "data/compliance/test"
+  dvc_remote: "gs://your-bucket/compliance-data"
+  categories:
+    - "ETHICAL_BREACH"
+    - "ILLEGAL_ACTIVITY"
+    - "REGULATORY_VIOLATION"
+    - "CONFIDENTIAL_INFO"
+    - "HARASSMENT"
+    - "COMPLIANT"
+
+model:
+  provider: "vertex"
+  model_id: "gemini-1.5-flash"
+  project_id: "your-gcp-project"
+  location: "us-central1"
+  temperature: 0.1
+  max_output_tokens: 256
+  top_p: 0.95
+  top_k: 40
+
+evaluation:
+  metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "confusion_matrix"
+  human_review_fraction: 0.05
+  confidence_threshold: 0.85
+
+mlflow:
+  tracking_uri: "http://mlflow:5000"
+  experiment_name: "compliance-detection"
+  run_name_prefix: "gemini-flash-"
+  tags:
+    task: "text-classification"
+    domain: "compliance"
+
+monitoring:
+  log_level: "INFO"
+  metrics_prefix: "compliance_detection"
+  prediction_drift_threshold: 0.1
+  alert_email: "team@example.com"
+  performance_metrics_interval: 3600
+
+deployment:
+  min_replicas: 1
+  max_replicas: 5
+  container_concurrency: 10
+  request_timeout: 300
+  memory_limit: "2Gi"
+  cpu_limit: "1"
