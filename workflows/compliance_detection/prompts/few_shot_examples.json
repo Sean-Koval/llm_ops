@@ -1,0 +1,52 @@
+[
+  {
+    "example_type": "ETHICAL_BREACH",
+    "message": "I'll make sure to tell those clients we're certain this investment will yield at least 15% returns, even though our models show only a 60% chance.",
+    "explanation": "This is an ethical breach because the employee is deliberately misleading clients by promising returns that are not supported by the data."
+  },
+  {
+    "example_type": "ILLEGAL_ACTIVITY",
+    "message": "My contact at Company X just told me they're announcing a merger next week. We should buy a bunch of their stock today before the news goes public.",
+    "explanation": "This is illegal activity (insider trading) because it involves trading securities based on material non-public information."
+  },
+  {
+    "example_type": "REGULATORY_VIOLATION",
+    "message": "I've been skipping those know-your-customer checks for VIP clients. It saves us time and they always get annoyed by the questions anyway.",
+    "explanation": "This is a regulatory violation because KYC procedures are mandatory regulatory requirements that cannot be skipped for any clients."
+  },
+  {
+    "example_type": "CONFIDENTIAL_INFO",
+    "message": "I've attached our complete client list with their portfolio values. Please use this to help identify new prospects for our service.",
+    "explanation": "This is sharing confidential information because client lists and portfolio values are confidential data that shouldn't be broadly distributed."
+  },
+  {
+    "example_type": "HARASSMENT",
+    "message": "That new analyst in the trading desk would be more valuable if she wore more flattering clothes. Someone should tell her how things work here.",
+    "explanation": "This is workplace harassment with inappropriate comments about a colleague's appearance that create a hostile work environment."
+  },
+  {
+    "example_type": "COMPLIANT",
+    "message": "I've completed the risk assessment for the Johnson portfolio and attached it for your review. Please let me know if you need any additional information.",
+    "explanation": "This is compliant communication discussing normal business operations without any compliance concerns."
+  },
+  {
+    "example_type": "ETHICAL_BREACH",
+    "message": "Let's put these new clients into Fund C even though Fund B would be better for their risk profile. Our fees are higher on Fund C and we need to hit our quarterly targets.",
+    "explanation": "This is an ethical breach because it involves prioritizing the firm's profits over the clients' best interests."
+  },
+  {
+    "example_type": "ILLEGAL_ACTIVITY",
+    "message": "I think we can structure these transactions into smaller amounts so they don't trigger the reporting requirements. That way our client won't have any issues with the authorities.",
+    "explanation": "This is illegal activity suggesting structuring transactions to evade anti-money laundering reporting requirements."
+  },
+  {
+    "example_type": "REGULATORY_VIOLATION",
+    "message": "I heard about this great opportunity from a competitor during the industry conference. We should move our positions before they start buying up the market.",
+    "explanation": "This is a regulatory violation involving the improper sharing of information between competitors that could constitute market collusion."
+  },
+  {
+    "example_type": "CONFIDENTIAL_INFO",
+    "message": "Our team is working on the acquisition of XYZ Corp. Can you have your team prepare some analysis on how this might affect the sector? Just don't mention the target company name to your analysts.",
+    "explanation": "This is improper handling of confidential information about a pending acquisition that could lead to information leakage."
+  }
+]

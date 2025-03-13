@@ -339,9 +339,3 @@ Once you've added the key to GitHub Secrets, make sure to:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-
-USE TO GENERATE EXAMPLE WORKFLOW:
- can you - in a step by step course like fashion - setup a "course" for me to go through and utilize the features of the pipeline for a use case        │
-│   (similar to the example in workflow/ but I want this to just give me the starting data and use case and give me a set of steps to follow step by step  │
-│   and which part of the MLOps pipeline/process that step solves and how it contributes to the workflow for initial model selection, prompt selection,    │
-│   tuning, evaluation, experiment tracking, adding metrics/traces, and visualizing the traffic        

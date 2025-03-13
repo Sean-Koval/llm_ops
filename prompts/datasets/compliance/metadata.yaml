@@ -1,0 +1,22 @@
+name: compliance-few-shot
+version: 1.0.0
+description: Few-shot examples for compliance breach detection
+category: compliance
+created_at: "2025-03-13T10:00:00Z"
+updated_at: "2025-03-13T10:00:00Z"
+statistics:
+  example_count: 15
+  category_distribution:
+    ETHICAL_BREACH: 3
+    ILLEGAL_ACTIVITY: 3
+    REGULATORY_VIOLATION: 3
+    CONFIDENTIAL_INFO: 2
+    HARASSMENT: 2
+    COMPLIANT: 2
+  avg_message_length: 35.2
+source: synthetic
+usage:
+  prompt_id: compliance/few_shot
+  template_variables:
+    - few_shot_examples
+  default_count: 5
