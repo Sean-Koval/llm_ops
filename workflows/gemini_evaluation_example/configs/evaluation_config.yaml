@@ -1,0 +1,43 @@
+# Evaluation Framework Configuration
+
+# Experiment tracking
+experiment_name: "gemini_evaluation"
+workspace_dir: "../results"
+
+# MLflow configuration
+mlflow:
+  tracking_uri: "http://localhost:5000"  # Change to your MLflow server URI if needed
+
+# Gemini configuration
+gemini:
+  log_inputs: true
+  log_outputs: true
+  log_metrics: true
+  log_parameters: true
+  # API key can be provided directly or via GOOGLE_API_KEY environment variable
+  # api_key: "your-api-key"
+  # For Vertex AI use:
+  # project_id: "your-gcp-project"
+  # location: "us-central1"
+
+# Evaluation parameters
+evaluation:
+  # Sample size for evaluation (set to null to use all examples)
+  sample_size: null
+  # Batch size for inference
+  batch_size: 5
+  # Metrics to use for comparing results
+  primary_metric: "accuracy"
+  secondary_metrics: ["f1_macro", "precision_macro", "recall_macro"]
+  # Whether higher is better for the primary metric
+  higher_is_better: true
+  # Task type (classification or generation)
+  task_type: "classification"
+
+# Reporting configuration
+reporting:
+  include_plots: true
+  plot_confusion_matrix: true
+  plot_token_usage: true
+  # Export formats
+  formats: ["json", "markdown", "csv"]

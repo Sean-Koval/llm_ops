@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "text": "This product exceeded all my expectations. I'm incredibly happy with my purchase!",
+    "label": "positive"
+  },
+  {
+    "id": 2,
+    "text": "Worst experience ever. The customer service was terrible and the product arrived damaged.",
+    "label": "negative"
+  },
+  {
+    "id": 3,
+    "text": "The item was delivered on time and works as expected.",
+    "label": "neutral"
+  },
+  {
+    "id": 4,
+    "text": "I absolutely love this! It's the best purchase I've made all year.",
+    "label": "positive"
+  },
+  {
+    "id": 5,
+    "text": "It's okay I guess, nothing special but gets the job done.",
+    "label": "neutral"
+  },
+  {
+    "id": 6,
+    "text": "I'm extremely disappointed with the quality. Will be returning this immediately.",
+    "label": "negative"
+  },
+  {
+    "id": 7,
+    "text": "Average product for the price point. Neither impressive nor disappointing.",
+    "label": "neutral"
+  },
+  {
+    "id": 8,
+    "text": "Fantastic design and brilliant functionality. Worth every penny!",
+    "label": "positive"
+  },
+  {
+    "id": 9,
+    "text": "Don't waste your money on this. Complete garbage that broke within a week.",
+    "label": "negative"
+  },
+  {
+    "id": 10,
+    "text": "The product matches the description and arrived in good condition.",
+    "label": "neutral"
+  },
+  {
+    "id": 11,
+    "text": "I'm so thrilled with how well this works! Definitely recommending to all my friends.",
+    "label": "positive"
+  },
+  {
+    "id": 12,
+    "text": "Terrible experience from start to finish. Avoid at all costs.",
+    "label": "negative"
+  },
+  {
+    "id": 13,
+    "text": "Does what it's supposed to do. No complaints but nothing exceptional.",
+    "label": "neutral"
+  },
+  {
+    "id": 14,
+    "text": "This has transformed my daily routine! Such a time-saver and works flawlessly.",
+    "label": "positive"
+  },
+  {
+    "id": 15,
+    "text": "The quality is appalling for the price. Complete ripoff.",
+    "label": "negative"
+  },
+  {
+    "id": 16,
+    "text": "Simple product that meets basic needs. Standard quality.",
+    "label": "neutral"
+  },
+  {
+    "id": 17,
+    "text": "Couldn't be happier with this purchase! Excellent quality and performance.",
+    "label": "positive"
+  },
+  {
+    "id": 18,
+    "text": "What a disappointment. Nothing like the advertised product.",
+    "label": "negative"
+  },
+  {
+    "id": 19,
+    "text": "The delivery was on time and the product works as described.",
+    "label": "neutral"
+  },
+  {
+    "id": 20,
+    "text": "This product is a game-changer! Absolutely perfect in every way.",
+    "label": "positive"
+  }
+]

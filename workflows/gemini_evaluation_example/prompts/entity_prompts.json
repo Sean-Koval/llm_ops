@@ -1,0 +1,11 @@
+{
+  "basic": "Extract the named entities (people, organizations, locations, dates, money, time) from the following text. Return the entities as a JSON object with entity types as keys and lists of entities as values: ",
+  
+  "detailed": "Please analyze the following text and identify all named entities, including people, organizations, locations, dates, money amounts, and time expressions. Categorize each entity under its appropriate type. Return your answer as a well-formatted JSON object with entity types as keys and arrays of extracted entities as values. Text to analyze: ",
+  
+  "step_by_step": "Follow these steps to extract named entities from the text:\n1. Read the text carefully\n2. Identify all people mentioned (full names, titles, etc.)\n3. Identify all organizations (companies, institutions, etc.)\n4. Identify all locations (cities, countries, buildings, etc.)\n5. Identify all dates and time expressions\n6. Identify all monetary amounts\n7. Format the results as a JSON object with entity types as keys and arrays of entities as values\n\nText: ",
+  
+  "few_shot": "Here are some examples of entity extraction:\n\nText: 'Apple Inc. is based in Cupertino, California.'\nEntities: {\"organizations\": [\"Apple Inc.\"], \"locations\": [\"Cupertino\", \"California\"]}\n\nText: 'Jeff Bezos founded Amazon on July 5, 1994.'\nEntities: {\"people\": [\"Jeff Bezos\"], \"organizations\": [\"Amazon\"], \"dates\": [\"July 5, 1994\"]}\n\nNow, extract the entities from the following text as a JSON object: ",
+  
+  "structured_output": "Extract all named entities from the following text. Categorize them into: PEOPLE, ORGANIZATIONS, LOCATIONS, DATES, MONEY, and TIME.\n\nReturn your response in valid JSON format exactly like this example:\n{\n  \"people\": [\"Person 1\", \"Person 2\"],\n  \"organizations\": [\"Organization 1\"],\n  \"locations\": [\"Location 1\", \"Location 2\"],\n  \"dates\": [\"Date 1\"],\n  \"money\": [\"Amount 1\"],\n  \"time\": [\"Time 1\"]\n}\n\nInclude only categories that have at least one entity. If no entities of a certain type are found, omit that category entirely.\n\nText to analyze: "
+}

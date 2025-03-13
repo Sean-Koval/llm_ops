@@ -1,0 +1,11 @@
+{
+  "basic": "Classify the sentiment of the following text as positive, negative, or neutral: ",
+  
+  "detailed": "Analyze the sentiment in the following text and classify it as exactly one of these categories: 'positive', 'negative', or 'neutral'. Consider the emotional tone, word choice, and context. Text: ",
+  
+  "step_by_step": "Follow these steps to analyze the sentiment of the text:\n1. Identify emotional words and phrases\n2. Determine if they express positive, negative, or neutral sentiments\n3. Consider the overall tone of the text\n4. Output ONLY a single word: positive, negative, or neutral\n\nText to analyze: ",
+  
+  "few_shot": "Here are some examples of sentiment classification:\n\nText: 'I love this product, it's amazing!'\nSentiment: positive\n\nText: 'This is the worst experience ever.'\nSentiment: negative\n\nText: 'The item arrived on schedule.'\nSentiment: neutral\n\nNow, classify the sentiment of the following text as positive, negative, or neutral: ",
+  
+  "zero_shot_cot": "I need to determine if the sentiment of a piece of text is positive, negative, or neutral. Let me think through this step-by-step, considering the emotional tone, specific words used, and overall message. After my analysis, I'll provide my final classification using only one of these three labels: positive, negative, or neutral.\n\nText to analyze: "
+}

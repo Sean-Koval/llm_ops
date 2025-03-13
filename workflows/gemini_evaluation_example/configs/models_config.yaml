@@ -1,0 +1,71 @@
+# Gemini Model Configurations
+
+# Gemini 1.5 Flash - Fast, cost-effective model
+gemini-1.5-flash:
+  description: "Fastest Gemini model, good for high-volume applications"
+  generation_config:
+    temperature: 0.0  # Zero temperature for deterministic outputs in evaluation
+    top_p: 0.95
+    top_k: 40
+    max_output_tokens: 1024
+    stop_sequences: []
+  cost_per_1k_tokens:
+    input: 0.00025
+    output: 0.0007
+
+# Gemini 1.5 Pro - High-quality model for complex tasks
+gemini-1.5-pro:
+  description: "High quality model for reasoning and complex tasks"
+  generation_config:
+    temperature: 0.0
+    top_p: 0.95
+    top_k: 40
+    max_output_tokens: 1024
+    stop_sequences: []
+  cost_per_1k_tokens:
+    input: 0.0025
+    output: 0.0075
+
+# Gemini 1.0 Pro - Legacy model
+gemini-1.0-pro:
+  description: "Legacy model for backwards compatibility testing"
+  generation_config:
+    temperature: 0.0
+    top_p: 0.95
+    top_k: 40
+    max_output_tokens: 1024
+    stop_sequences: []
+  cost_per_1k_tokens:
+    input: 0.00125
+    output: 0.00375
+
+# Gemini 1.0 Ultra - Legacy high-quality model
+gemini-1.0-ultra:
+  description: "Legacy high quality model for backwards compatibility testing"
+  generation_config:
+    temperature: 0.0
+    top_p: 0.95
+    top_k: 40
+    max_output_tokens: 1024
+    stop_sequences: []
+  cost_per_1k_tokens:
+    input: 0.0125
+    output: 0.0375
+
+# Multi-turn configurations - for conversational evaluation
+gemini-1.5-flash-multiturn:
+  description: "Gemini 1.5 Flash configured for multi-turn conversations"
+  generation_config:
+    temperature: 0.2
+    top_p: 0.95
+    top_k: 40
+    max_output_tokens: 2048
+    stop_sequences: []
+  safety_settings:
+    harassment: "block_none"
+    hate_speech: "block_none"
+    sexually_explicit: "block_none"
+    dangerous_content: "block_none"
+  cost_per_1k_tokens:
+    input: 0.00025
+    output: 0.0007

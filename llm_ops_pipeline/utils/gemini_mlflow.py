@@ -21,10 +21,10 @@ try:
 except ImportError:
     GEMINI_AVAILABLE = False
 
-from llm_ops_pipeline.utils.logging import setup_logger
+from llm_ops_pipeline.utils.logging import get_logger
 
 # Set up logger
-logger = setup_logger(name="gemini_mlflow")
+logger = get_logger(name="gemini_mlflow")
 
 class GeminiMLflowLogger:
     """

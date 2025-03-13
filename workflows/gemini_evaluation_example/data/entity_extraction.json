@@ -1,0 +1,89 @@
+[
+  {
+    "id": 1,
+    "text": "Apple Inc. is planning to open a new store in Paris, France next month.",
+    "entities": {
+      "organizations": ["Apple Inc."],
+      "locations": ["Paris", "France"],
+      "dates": ["next month"]
+    }
+  },
+  {
+    "id": 2,
+    "text": "Microsoft CEO Satya Nadella announced a partnership with OpenAI on January 15, 2023.",
+    "entities": {
+      "organizations": ["Microsoft", "OpenAI"],
+      "people": ["Satya Nadella"],
+      "dates": ["January 15, 2023"]
+    }
+  },
+  {
+    "id": 3,
+    "text": "Tesla reported record earnings of $3.5 billion in Q2 2023.",
+    "entities": {
+      "organizations": ["Tesla"],
+      "money": ["$3.5 billion"],
+      "dates": ["Q2 2023"]
+    }
+  },
+  {
+    "id": 4,
+    "text": "The conference will be held at the Marriott Hotel in San Francisco from September 5-8.",
+    "entities": {
+      "locations": ["Marriott Hotel", "San Francisco"],
+      "dates": ["September 5-8"]
+    }
+  },
+  {
+    "id": 5,
+    "text": "Dr. Sarah Johnson from MIT published a groundbreaking paper on quantum computing yesterday.",
+    "entities": {
+      "people": ["Dr. Sarah Johnson"],
+      "organizations": ["MIT"],
+      "dates": ["yesterday"]
+    }
+  },
+  {
+    "id": 6,
+    "text": "Amazon purchased Whole Foods for $13.7 billion in August 2017.",
+    "entities": {
+      "organizations": ["Amazon", "Whole Foods"],
+      "money": ["$13.7 billion"],
+      "dates": ["August 2017"]
+    }
+  },
+  {
+    "id": 7,
+    "text": "The flight from JFK to LAX was delayed by 3 hours due to bad weather.",
+    "entities": {
+      "locations": ["JFK", "LAX"],
+      "time": ["3 hours"]
+    }
+  },
+  {
+    "id": 8,
+    "text": "President Biden will meet with German Chancellor Olaf Scholz at the White House next Tuesday.",
+    "entities": {
+      "people": ["President Biden", "Olaf Scholz"],
+      "locations": ["White House"],
+      "dates": ["next Tuesday"]
+    }
+  },
+  {
+    "id": 9,
+    "text": "Google's DeepMind division announced a breakthrough in protein folding on December 1st.",
+    "entities": {
+      "organizations": ["Google", "DeepMind"],
+      "dates": ["December 1st"]
+    }
+  },
+  {
+    "id": 10,
+    "text": "The new iPhone will be released on September 15th with a starting price of $999.",
+    "entities": {
+      "products": ["iPhone"],
+      "dates": ["September 15th"],
+      "money": ["$999"]
+    }
+  }
+]
