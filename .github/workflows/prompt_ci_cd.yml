@@ -1,400 +1,400 @@
-name: Prompt CI/CD
+# name: Prompt CI/CD
 
-on:
-  push:
-    branches: [ main, 'release/**' ]
-    paths:
-      - 'prompts/**'
-      - 'workflows/**/prompts/**'
-  pull_request:
-    branches: [ main ]
-    paths:
-      - 'prompts/**'
-      - 'workflows/**/prompts/**'
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Target environment for prompt deployment'
-        required: true
-        default: 'development'
-        type: choice
-        options:
-          - development
-          - staging
-          - production
-      prompt_id:
-        description: 'Specific prompt ID to deploy (leave empty for all)'
-        required: false
-        type: string
+# on:
+#   push:
+#     branches: [ main, 'release/**' ]
+#     paths:
+#       - 'prompts/**'
+#       - 'workflows/**/prompts/**'
+#   pull_request:
+#     branches: [ main ]
+#     paths:
+#       - 'prompts/**'
+#       - 'workflows/**/prompts/**'
+#   workflow_dispatch:
+#     inputs:
+#       environment:
+#         description: 'Target environment for prompt deployment'
+#         required: true
+#         default: 'development'
+#         type: choice
+#         options:
+#           - development
+#           - staging
+#           - production
+#       prompt_id:
+#         description: 'Specific prompt ID to deploy (leave empty for all)'
+#         required: false
+#         type: string
 
-env:
-  MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI || 'http://localhost:5000' }}
-  LANGFUSE_API_KEY: ${{ secrets.LANGFUSE_API_KEY || '' }}
-  LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY || '' }}
-  LANGFUSE_HOST: ${{ secrets.LANGFUSE_HOST || 'https://cloud.langfuse.com' }}
+# env:
+#   MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI || 'http://localhost:5000' }}
+#   LANGFUSE_API_KEY: ${{ secrets.LANGFUSE_API_KEY || '' }}
+#   LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY || '' }}
+#   LANGFUSE_HOST: ${{ secrets.LANGFUSE_HOST || 'https://cloud.langfuse.com' }}
 
-jobs:
-  validate_prompts:
-    name: Validate Prompts
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+# jobs:
+#   validate_prompts:
+#     name: Validate Prompts
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.10'
           
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -e .
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -e .
           
-      - name: Validate Prompt Files
-        run: |
-          echo "Validating prompt files format and structure..."
-          python -c "
-import os
-import json
-import sys
-from pathlib import Path
+#       - name: Validate Prompt Files
+#         run: |
+#           echo "Validating prompt files format and structure..."
+#           python -c "
+# import os
+# import json
+# import sys
+# from pathlib import Path
 
-# Find all prompt files
-prompt_files = []
-for root, dirs, files in os.walk('./prompts'):
-    for file in files:
-        if file.endswith('.json') and file != 'metadata.json':
-            prompt_files.append(os.path.join(root, file))
+# # Find all prompt files
+# prompt_files = []
+# for root, dirs, files in os.walk('./prompts'):
+#     for file in files:
+#         if file.endswith('.json') and file != 'metadata.json':
+#             prompt_files.append(os.path.join(root, file))
 
-for workflow_dir in Path('./workflows').glob('**/prompts'):
-    for prompt_file in workflow_dir.glob('*.json'):
-        if prompt_file.name != 'metadata.json':
-            prompt_files.append(prompt_file)
+# for workflow_dir in Path('./workflows').glob('**/prompts'):
+#     for prompt_file in workflow_dir.glob('*.json'):
+#         if prompt_file.name != 'metadata.json':
+#             prompt_files.append(prompt_file)
 
-errors = []
+# errors = []
 
-# Validate each prompt file
-for prompt_file in prompt_files:
-    try:
-        with open(prompt_file, 'r') as f:
-            data = json.load(f)
+# # Validate each prompt file
+# for prompt_file in prompt_files:
+#     try:
+#         with open(prompt_file, 'r') as f:
+#             data = json.load(f)
             
-        # Check required fields
-        if 'name' not in data:
-            errors.append(f'{prompt_file}: Missing required field \"name\"')
+#         # Check required fields
+#         if 'name' not in data:
+#             errors.append(f'{prompt_file}: Missing required field \"name\"')
             
-        if 'system_prompt' not in data:
-            errors.append(f'{prompt_file}: Missing required field \"system_prompt\"')
+#         if 'system_prompt' not in data:
+#             errors.append(f'{prompt_file}: Missing required field \"system_prompt\"')
             
-    except json.JSONDecodeError as e:
-        errors.append(f'{prompt_file}: Invalid JSON format - {str(e)}')
-    except Exception as e:
-        errors.append(f'{prompt_file}: Error validating prompt - {str(e)}')
+#     except json.JSONDecodeError as e:
+#         errors.append(f'{prompt_file}: Invalid JSON format - {str(e)}')
+#     except Exception as e:
+#         errors.append(f'{prompt_file}: Error validating prompt - {str(e)}')
 
-# Check template files
-template_files = []
-for root, dirs, files in os.walk('./prompts'):
-    for file in files:
-        if file.endswith('.j2'):
-            template_files.append(os.path.join(root, file))
+# # Check template files
+# template_files = []
+# for root, dirs, files in os.walk('./prompts'):
+#     for file in files:
+#         if file.endswith('.j2'):
+#             template_files.append(os.path.join(root, file))
 
-for workflow_dir in Path('./workflows').glob('**/prompts'):
-    for template_file in workflow_dir.glob('*.j2'):
-        template_files.append(template_file)
+# for workflow_dir in Path('./workflows').glob('**/prompts'):
+#     for template_file in workflow_dir.glob('*.j2'):
+#         template_files.append(template_file)
 
-for template_file in template_files:
-    try:
-        with open(template_file, 'r') as f:
-            content = f.read()
+# for template_file in template_files:
+#     try:
+#         with open(template_file, 'r') as f:
+#             content = f.read()
             
-        # Check for unmatched template tags
-        opening_tags = content.count('{{') + content.count('{%')
-        closing_tags = content.count('}}') + content.count('%}')
+#         # Check for unmatched template tags
+#         opening_tags = content.count('{{') + content.count('{%')
+#         closing_tags = content.count('}}') + content.count('%}')
         
-        if opening_tags != closing_tags:
-            errors.append(f'{template_file}: Unmatched template tags - {opening_tags} opening vs {closing_tags} closing')
+#         if opening_tags != closing_tags:
+#             errors.append(f'{template_file}: Unmatched template tags - {opening_tags} opening vs {closing_tags} closing')
             
-    except Exception as e:
-        errors.append(f'{template_file}: Error validating template - {str(e)}')
+#     except Exception as e:
+#         errors.append(f'{template_file}: Error validating template - {str(e)}')
 
-# Report results
-if errors:
-    print('❌ Prompt validation failed with the following errors:')
-    for error in errors:
-        print(f'  - {error}')
-    sys.exit(1)
-else:
-    print('✅ All prompt files validated successfully')
-          "
+# # Report results
+# if errors:
+#     print('❌ Prompt validation failed with the following errors:')
+#     for error in errors:
+#         print(f'  - {error}')
+#     sys.exit(1)
+# else:
+#     print('✅ All prompt files validated successfully')
+#           "
           
-      - name: Run Prompt Tests
-        run: |
-          echo "Running prompt unit tests..."
-          python -m pytest tests/unit/utils/test_prompt_management.py -v
+#       - name: Run Prompt Tests
+#         run: |
+#           echo "Running prompt unit tests..."
+#           python -m pytest tests/unit/utils/test_prompt_management.py -v
 
-  deploy_prompts:
-    name: Deploy Prompts
-    needs: validate_prompts
-    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
-    runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment || 'development' }}
+#   deploy_prompts:
+#     name: Deploy Prompts
+#     needs: validate_prompts
+#     if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+#     runs-on: ubuntu-latest
+#     environment: ${{ github.event.inputs.environment || 'development' }}
     
-    steps:
-      - uses: actions/checkout@v3
+#     steps:
+#       - uses: actions/checkout@v3
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.10'
           
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -e .
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -e .
           
-      - name: Determine target environment
-        id: env
-        run: |
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "TARGET_ENV=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
-            echo "PROMPT_ID=${{ github.event.inputs.prompt_id }}" >> $GITHUB_ENV
-          elif [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "TARGET_ENV=development" >> $GITHUB_ENV
-          elif [[ "${{ github.ref }}" == refs/heads/release/* ]]; then
-            echo "TARGET_ENV=staging" >> $GITHUB_ENV
-          else
-            echo "TARGET_ENV=development" >> $GITHUB_ENV
-          fi
+#       - name: Determine target environment
+#         id: env
+#         run: |
+#           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+#             echo "TARGET_ENV=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
+#             echo "PROMPT_ID=${{ github.event.inputs.prompt_id }}" >> $GITHUB_ENV
+#           elif [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+#             echo "TARGET_ENV=development" >> $GITHUB_ENV
+#           elif [[ "${{ github.ref }}" == refs/heads/release/* ]]; then
+#             echo "TARGET_ENV=staging" >> $GITHUB_ENV
+#           else
+#             echo "TARGET_ENV=development" >> $GITHUB_ENV
+#           fi
           
-      - name: Deploy Prompts
-        run: |
-          echo "Deploying prompts to ${{ env.TARGET_ENV }} environment..."
-          python -c "
-import os
-import sys
-import json
-from pathlib import Path
+#       - name: Deploy Prompts
+#         run: |
+#           echo "Deploying prompts to ${{ env.TARGET_ENV }} environment..."
+#           python -c "
+# import os
+# import sys
+# import json
+# from pathlib import Path
 
-from llm_ops_pipeline.utils.prompt_management import PromptManager
-from llm_ops_pipeline.utils.prompt_templates import PromptTemplateLibrary
+# from llm_ops_pipeline.utils.prompt_management import PromptManager
+# from llm_ops_pipeline.utils.prompt_templates import PromptTemplateLibrary
 
-# Initialize prompt manager
-prompt_manager = PromptManager(
-    langfuse_api_key=os.environ.get('LANGFUSE_API_KEY'),
-    langfuse_secret_key=os.environ.get('LANGFUSE_SECRET_KEY'),
-    langfuse_host=os.environ.get('LANGFUSE_HOST'),
-    environment='${{ env.TARGET_ENV }}'
-)
+# # Initialize prompt manager
+# prompt_manager = PromptManager(
+#     langfuse_api_key=os.environ.get('LANGFUSE_API_KEY'),
+#     langfuse_secret_key=os.environ.get('LANGFUSE_SECRET_KEY'),
+#     langfuse_host=os.environ.get('LANGFUSE_HOST'),
+#     environment='${{ env.TARGET_ENV }}'
+# )
 
-# Initialize template library
-prompts_dir = Path('./prompts')
-template_library = PromptTemplateLibrary(prompts_dir)
+# # Initialize template library
+# prompts_dir = Path('./prompts')
+# template_library = PromptTemplateLibrary(prompts_dir)
 
-# Get specific prompt ID if provided
-specific_prompt_id = os.environ.get('PROMPT_ID', '')
+# # Get specific prompt ID if provided
+# specific_prompt_id = os.environ.get('PROMPT_ID', '')
 
-# Process template files
-template_files = []
-for template_file in prompts_dir.glob('**/*.j2'):
-    relative_path = template_file.relative_to(prompts_dir)
-    prompt_id = str(relative_path.parent / relative_path.stem)
+# # Process template files
+# template_files = []
+# for template_file in prompts_dir.glob('**/*.j2'):
+#     relative_path = template_file.relative_to(prompts_dir)
+#     prompt_id = str(relative_path.parent / relative_path.stem)
     
-    if specific_prompt_id and prompt_id != specific_prompt_id:
-        continue
+#     if specific_prompt_id and prompt_id != specific_prompt_id:
+#         continue
         
-    template_files.append((prompt_id, template_file))
+#     template_files.append((prompt_id, template_file))
 
-# Process template files in workflows
-for workflow_dir in Path('./workflows').glob('**/prompts'):
-    for template_file in workflow_dir.glob('*.j2'):
-        workflow_name = workflow_dir.parent.name
-        prompt_id = f'{workflow_name}/{template_file.stem}'
+# # Process template files in workflows
+# for workflow_dir in Path('./workflows').glob('**/prompts'):
+#     for template_file in workflow_dir.glob('*.j2'):
+#         workflow_name = workflow_dir.parent.name
+#         prompt_id = f'{workflow_name}/{template_file.stem}'
         
-        if specific_prompt_id and prompt_id != specific_prompt_id:
-            continue
+#         if specific_prompt_id and prompt_id != specific_prompt_id:
+#             continue
             
-        template_files.append((prompt_id, template_file))
+#         template_files.append((prompt_id, template_file))
 
-# Deploy each template
-deployed_prompts = []
-errors = []
+# # Deploy each template
+# deployed_prompts = []
+# errors = []
 
-for prompt_id, template_file in template_files:
-    try:
-        print(f'Processing template: {prompt_id}')
+# for prompt_id, template_file in template_files:
+#     try:
+#         print(f'Processing template: {prompt_id}')
         
-        # Read template content
-        with open(template_file, 'r') as f:
-            template_content = f.read()
+#         # Read template content
+#         with open(template_file, 'r') as f:
+#             template_content = f.read()
             
-        # Check if prompt already exists
-        try:
-            existing_prompt = prompt_manager.get_prompt(prompt_id)
-            print(f'Updating existing prompt: {prompt_id}')
+#         # Check if prompt already exists
+#         try:
+#             existing_prompt = prompt_manager.get_prompt(prompt_id)
+#             print(f'Updating existing prompt: {prompt_id}')
             
-            # Update the prompt
-            result = prompt_manager.update_prompt(
-                prompt_id=prompt_id,
-                content=template_content,
-                description=f'Template prompt for {prompt_id}',
-                tags=['template']
-            )
+#             # Update the prompt
+#             result = prompt_manager.update_prompt(
+#                 prompt_id=prompt_id,
+#                 content=template_content,
+#                 description=f'Template prompt for {prompt_id}',
+#                 tags=['template']
+#             )
             
-        except ValueError:
-            print(f'Creating new prompt: {prompt_id}')
+#         except ValueError:
+#             print(f'Creating new prompt: {prompt_id}')
             
-            # Create new prompt
-            result = prompt_manager.create_prompt(
-                prompt_id=prompt_id,
-                content=template_content,
-                name=prompt_id,
-                description=f'Template prompt for {prompt_id}',
-                tags=['template']
-            )
+#             # Create new prompt
+#             result = prompt_manager.create_prompt(
+#                 prompt_id=prompt_id,
+#                 content=template_content,
+#                 name=prompt_id,
+#                 description=f'Template prompt for {prompt_id}',
+#                 tags=['template']
+#             )
             
-        deployed_prompts.append({
-            'prompt_id': prompt_id,
-            'version': result.get('metadata', {}).get('version', 'unknown'),
-            'status': 'success'
-        })
+#         deployed_prompts.append({
+#             'prompt_id': prompt_id,
+#             'version': result.get('metadata', {}).get('version', 'unknown'),
+#             'status': 'success'
+#         })
         
-    except Exception as e:
-        print(f'Error deploying prompt {prompt_id}: {str(e)}')
-        errors.append({
-            'prompt_id': prompt_id,
-            'error': str(e),
-            'status': 'error'
-        })
+#     except Exception as e:
+#         print(f'Error deploying prompt {prompt_id}: {str(e)}')
+#         errors.append({
+#             'prompt_id': prompt_id,
+#             'error': str(e),
+#             'status': 'error'
+#         })
 
-# Process JSON prompts
-json_files = []
-for json_file in prompts_dir.glob('**/*.json'):
-    if json_file.name in ['metadata.json', 'registry.json']:
-        continue
+# # Process JSON prompts
+# json_files = []
+# for json_file in prompts_dir.glob('**/*.json'):
+#     if json_file.name in ['metadata.json', 'registry.json']:
+#         continue
         
-    relative_path = json_file.relative_to(prompts_dir)
-    prompt_id = str(relative_path.parent / relative_path.stem)
+#     relative_path = json_file.relative_to(prompts_dir)
+#     prompt_id = str(relative_path.parent / relative_path.stem)
     
-    if specific_prompt_id and prompt_id != specific_prompt_id:
-        continue
+#     if specific_prompt_id and prompt_id != specific_prompt_id:
+#         continue
         
-    json_files.append((prompt_id, json_file))
+#     json_files.append((prompt_id, json_file))
 
-# Process JSON prompts in workflows
-for workflow_dir in Path('./workflows').glob('**/prompts'):
-    for json_file in workflow_dir.glob('*.json'):
-        if json_file.name in ['metadata.json', 'registry.json', 'few_shot_examples.json']:
-            continue
+# # Process JSON prompts in workflows
+# for workflow_dir in Path('./workflows').glob('**/prompts'):
+#     for json_file in workflow_dir.glob('*.json'):
+#         if json_file.name in ['metadata.json', 'registry.json', 'few_shot_examples.json']:
+#             continue
             
-        workflow_name = workflow_dir.parent.name
-        prompt_id = f'{workflow_name}/{json_file.stem}'
+#         workflow_name = workflow_dir.parent.name
+#         prompt_id = f'{workflow_name}/{json_file.stem}'
         
-        if specific_prompt_id and prompt_id != specific_prompt_id:
-            continue
+#         if specific_prompt_id and prompt_id != specific_prompt_id:
+#             continue
             
-        json_files.append((prompt_id, json_file))
+#         json_files.append((prompt_id, json_file))
 
-# Deploy each JSON prompt
-for prompt_id, json_file in json_files:
-    try:
-        print(f'Processing JSON prompt: {prompt_id}')
+# # Deploy each JSON prompt
+# for prompt_id, json_file in json_files:
+#     try:
+#         print(f'Processing JSON prompt: {prompt_id}')
         
-        # Read JSON content
-        with open(json_file, 'r') as f:
-            data = json.load(f)
+#         # Read JSON content
+#         with open(json_file, 'r') as f:
+#             data = json.load(f)
             
-        prompt_content = data.get('system_prompt', '')
-        if not prompt_content:
-            print(f'Skipping {prompt_id}: No system_prompt field found')
-            continue
+#         prompt_content = data.get('system_prompt', '')
+#         if not prompt_content:
+#             print(f'Skipping {prompt_id}: No system_prompt field found')
+#             continue
             
-        # Check if prompt already exists
-        try:
-            existing_prompt = prompt_manager.get_prompt(prompt_id)
-            print(f'Updating existing prompt: {prompt_id}')
+#         # Check if prompt already exists
+#         try:
+#             existing_prompt = prompt_manager.get_prompt(prompt_id)
+#             print(f'Updating existing prompt: {prompt_id}')
             
-            # Update the prompt
-            result = prompt_manager.update_prompt(
-                prompt_id=prompt_id,
-                content=prompt_content,
-                description=data.get('description', f'Prompt for {prompt_id}'),
-                tags=data.get('tags', [])
-            )
+#             # Update the prompt
+#             result = prompt_manager.update_prompt(
+#                 prompt_id=prompt_id,
+#                 content=prompt_content,
+#                 description=data.get('description', f'Prompt for {prompt_id}'),
+#                 tags=data.get('tags', [])
+#             )
             
-        except ValueError:
-            print(f'Creating new prompt: {prompt_id}')
+#         except ValueError:
+#             print(f'Creating new prompt: {prompt_id}')
             
-            # Create new prompt
-            result = prompt_manager.create_prompt(
-                prompt_id=prompt_id,
-                content=prompt_content,
-                name=data.get('name', prompt_id),
-                description=data.get('description', f'Prompt for {prompt_id}'),
-                tags=data.get('tags', [])
-            )
+#             # Create new prompt
+#             result = prompt_manager.create_prompt(
+#                 prompt_id=prompt_id,
+#                 content=prompt_content,
+#                 name=data.get('name', prompt_id),
+#                 description=data.get('description', f'Prompt for {prompt_id}'),
+#                 tags=data.get('tags', [])
+#             )
             
-        deployed_prompts.append({
-            'prompt_id': prompt_id,
-            'version': result.get('metadata', {}).get('version', 'unknown'),
-            'status': 'success'
-        })
+#         deployed_prompts.append({
+#             'prompt_id': prompt_id,
+#             'version': result.get('metadata', {}).get('version', 'unknown'),
+#             'status': 'success'
+#         })
         
-    except Exception as e:
-        print(f'Error deploying prompt {prompt_id}: {str(e)}')
-        errors.append({
-            'prompt_id': prompt_id,
-            'error': str(e),
-            'status': 'error'
-        })
+#     except Exception as e:
+#         print(f'Error deploying prompt {prompt_id}: {str(e)}')
+#         errors.append({
+#             'prompt_id': prompt_id,
+#             'error': str(e),
+#             'status': 'error'
+#         })
 
-# Print deployment report
-print(f'\n--- Deployment Report for {len(deployed_prompts)} Prompts ---')
-for prompt in deployed_prompts:
-    print(f'✅ {prompt[\"prompt_id\"]} (v{prompt[\"version\"]})')
+# # Print deployment report
+# print(f'\n--- Deployment Report for {len(deployed_prompts)} Prompts ---')
+# for prompt in deployed_prompts:
+#     print(f'✅ {prompt[\"prompt_id\"]} (v{prompt[\"version\"]})')
 
-if errors:
-    print(f'\n--- Failed Deployments ({len(errors)}) ---')
-    for error in errors:
-        print(f'❌ {error[\"prompt_id\"]}: {error[\"error\"]}')
+# if errors:
+#     print(f'\n--- Failed Deployments ({len(errors)}) ---')
+#     for error in errors:
+#         print(f'❌ {error[\"prompt_id\"]}: {error[\"error\"]}')
     
-    if not deployed_prompts:
-        sys.exit(1)  # Fail if nothing was deployed
+#     if not deployed_prompts:
+#         sys.exit(1)  # Fail if nothing was deployed
 
-# Sync to Langfuse if credentials are available
-if os.environ.get('LANGFUSE_API_KEY') and os.environ.get('LANGFUSE_SECRET_KEY'):
-    try:
-        print('\nSyncing prompts to Langfuse...')
-        sync_result = prompt_manager.sync_from_langfuse()
-        print(f'Synced {sync_result[\"synced\"]} prompts from Langfuse')
-    except Exception as e:
-        print(f'Error syncing from Langfuse: {str(e)}')
-          "
+# # Sync to Langfuse if credentials are available
+# if os.environ.get('LANGFUSE_API_KEY') and os.environ.get('LANGFUSE_SECRET_KEY'):
+#     try:
+#         print('\nSyncing prompts to Langfuse...')
+#         sync_result = prompt_manager.sync_from_langfuse()
+#         print(f'Synced {sync_result[\"synced\"]} prompts from Langfuse')
+#     except Exception as e:
+#         print(f'Error syncing from Langfuse: {str(e)}')
+#           "
 
-  run_usage_test:
-    name: Run Usage Test
-    needs: deploy_prompts
-    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
-    runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment || 'development' }}
+#   run_usage_test:
+#     name: Run Usage Test
+#     needs: deploy_prompts
+#     if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+#     runs-on: ubuntu-latest
+#     environment: ${{ github.event.inputs.environment || 'development' }}
     
-    steps:
-      - uses: actions/checkout@v3
+#     steps:
+#       - uses: actions/checkout@v3
       
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.10'
           
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -e .
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -e .
           
-      - name: Test Compliance Detection Workflow
-        run: |
-          echo "Testing compliance detection prompts..."
-          python workflows/compliance_detection/scripts/enhanced_compliance_predictor.py \
-            --config workflows/compliance_detection/configs/compliance_config.yaml \
-            --mode classify \
-            --message "Let me know if you need any help with the quarterly report. I've attached the latest compliance checklist for your reference." \
-            --environment ${{ github.event.inputs.environment || 'development' }}
+#       - name: Test Compliance Detection Workflow
+#         run: |
+#           echo "Testing compliance detection prompts..."
+#           python workflows/compliance_detection/scripts/enhanced_compliance_predictor.py \
+#             --config workflows/compliance_detection/configs/compliance_config.yaml \
+#             --mode classify \
+#             --message "Let me know if you need any help with the quarterly report. I've attached the latest compliance checklist for your reference." \
+#             --environment ${{ github.event.inputs.environment || 'development' }}
