@@ -1,4 +1,4 @@
-#\!/bin/bash
+#!/bin/bash
 set -e
 
 # Colors for output
@@ -10,7 +10,7 @@ NC='\033[0m' # No Color
 echo -e "${YELLOW}Cleaning up LLM Ops Pipeline Docker Compose deployment${NC}"
 
 # Check if docker-compose is installed
-if \! command -v docker-compose &> /dev/null && \! command -v docker &> /dev/null; then
+if ! command -v docker-compose &> /dev/null && ! docker compose version &> /dev/null; then
     echo -e "${RED}Neither docker-compose nor docker compose command found. Please install Docker Compose first.${NC}"
     exit 1
 fi
@@ -23,4 +23,4 @@ else
     docker compose down
 fi
 
-echo -e "${GREEN}Cleanup complete\!${NC}"
+echo -e "${GREEN}Cleanup complete!${NC}"
