@@ -17,3 +17,5 @@ langfuse>=2.0.0
 dvc>=3.0.0
 streamlit>=1.22.0
 plotly>=5.14.0
+prometheus-client>=0.17.0
+prometheus-fastapi-instrumentator>=5.9.0
