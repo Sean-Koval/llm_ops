@@ -1,0 +1,9 @@
+{
+  "name": "example/hello",
+  "description": "A basic hello world prompt example",
+  "tags": ["example", "basic"],
+  "created_at": "2025-03-13T00:00:00Z",
+  "updated_at": "2025-03-13T00:00:00Z",
+  "version": "1.0.0",
+  "hash": "8e5d41f15b96f82a2c77c16931204931b4b558bc4ffa2d4e8c257b5112e09ef9"
+}

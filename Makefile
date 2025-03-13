@@ -3,7 +3,8 @@
 .PHONY: help setup install-uv install-uv-wsl install-deps test lint typecheck clean build docs docker-build docker-run docker-compose-up \
 	docker-deploy docker-cleanup minikube-setup minikube-deploy minikube-cleanup port-forward-all test-deployment \
 	compliance-generate-data compliance-prompt-tuning compliance-evaluate compliance-deploy run-inference start-server \
-	minimal-server fine-tune create-venv activate-venv
+	minimal-server fine-tune create-venv activate-venv prompt-sync prompt-init-dvc prompt-list prompt-create prompt-update \
+	prompt-test prompt-dashboard
 
 # Default target
 help:
@@ -44,6 +45,15 @@ help:
 	@echo "  compliance-prompt-tuning    Run prompt tuning experiments"
 	@echo "  compliance-evaluate         Evaluate the compliance detection model"
 	@echo "  compliance-deploy           Deploy the compliance detection API"
+	@echo ""
+	@echo "Prompt Management:"
+	@echo "  prompt-sync                 Sync prompts from Langfuse to local repository"
+	@echo "  prompt-init-dvc             Initialize DVC for prompt dataset tracking"
+	@echo "  prompt-list                 List all prompts in the system"
+	@echo "  prompt-create               Create a new prompt"
+	@echo "  prompt-update               Update an existing prompt"
+	@echo "  prompt-test                 Run tests for prompt management system"
+	@echo "  prompt-dashboard            Launch prompt performance monitoring dashboard"
 
 # Setup
 setup: install-uv install-deps
@@ -151,6 +161,36 @@ compliance-evaluate:
 
 compliance-deploy:
 	uv pip run python workflows/compliance_detection/scripts/deploy_api.py
+
+# Prompt Management
+prompt-sync:
+	uv pip run python -c "from llm_ops_pipeline.utils.prompt_management import PromptManager; pm = PromptManager(); pm.sync_from_langfuse()"
+
+prompt-init-dvc:
+	uv pip run python -c "from llm_ops_pipeline.utils.prompt_management import initialize_dvc_prompt_tracking; initialize_dvc_prompt_tracking('.')"
+
+prompt-list:
+	uv pip run python -c "from llm_ops_pipeline.utils.prompt_management import PromptManager; pm = PromptManager(); import json; print(json.dumps(pm.list_prompts(), indent=2))"
+
+prompt-create:
+	@echo "Creating a new prompt..."
+	@read -p "Prompt ID: " prompt_id; \
+	read -p "Description: " description; \
+	read -p "Enter prompt content (end with CTRL+D): " prompt_content; \
+	uv pip run python -c "from llm_ops_pipeline.utils.prompt_management import PromptManager; pm = PromptManager(); pm.create_prompt(prompt_id='$$prompt_id', content=\"\"\"$$prompt_content\"\"\", description='$$description'); print(f'Prompt $$prompt_id created successfully')"
+
+prompt-update:
+	@echo "Updating an existing prompt..."
+	@read -p "Prompt ID: " prompt_id; \
+	read -p "Enter new prompt content (end with CTRL+D): " prompt_content; \
+	uv pip run python -c "from llm_ops_pipeline.utils.prompt_management import PromptManager; pm = PromptManager(); pm.update_prompt(prompt_id='$$prompt_id', content=\"\"\"$$prompt_content\"\"\"); print(f'Prompt $$prompt_id updated successfully')"
+
+prompt-test:
+	uv pip run pytest tests/unit/utils/test_prompt_management.py -v
+
+prompt-dashboard:
+	uv pip install streamlit plotly
+	uv pip run python scripts/prompt_monitoring_dashboard.py --streamlit
 
 # Virtual environment management
 create-venv:

@@ -1,0 +1,282 @@
+name: Prompt CI/CD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'prompts/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'prompts/**'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy prompts to'
+        required: true
+        default: 'development'
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+
+jobs:
+  validate-prompts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          
+      - name: Run prompt validation
+        run: |
+          python -c "
+          import os
+          import json
+          import sys
+          from pathlib import Path
+          
+          # Validate all prompts in the repository
+          prompts_dir = Path('prompts')
+          if not prompts_dir.exists():
+              print('No prompts directory found')
+              sys.exit(0)
+              
+          errors = []
+          
+          # Validate registry files
+          registry_dir = prompts_dir / 'registry'
+          if registry_dir.exists():
+              for reg_file in registry_dir.glob('*.json'):
+                  try:
+                      with open(reg_file, 'r') as f:
+                          registry = json.load(f)
+                      if not isinstance(registry, dict):
+                          errors.append(f'Registry {reg_file} is not a valid JSON object')
+                  except Exception as e:
+                      errors.append(f'Failed to parse registry {reg_file}: {e}')
+          
+          # Validate prompt files
+          for prompt_dir in prompts_dir.iterdir():
+              if prompt_dir.is_dir() and prompt_dir.name != 'registry' and prompt_dir.name != 'datasets':
+                  # Check prompt.json
+                  prompt_file = prompt_dir / 'prompt.json'
+                  if not prompt_file.exists():
+                      errors.append(f'Prompt directory {prompt_dir.name} missing prompt.json')
+                      continue
+                      
+                  try:
+                      with open(prompt_file, 'r') as f:
+                          prompt_data = json.load(f)
+                      if not isinstance(prompt_data, dict) or 'content' not in prompt_data:
+                          errors.append(f'Prompt {prompt_dir.name}/prompt.json missing content field')
+                  except Exception as e:
+                      errors.append(f'Failed to parse prompt {prompt_dir.name}/prompt.json: {e}')
+                  
+                  # Check metadata.json
+                  metadata_file = prompt_dir / 'metadata.json'
+                  if not metadata_file.exists():
+                      errors.append(f'Prompt directory {prompt_dir.name} missing metadata.json')
+                      continue
+                      
+                  try:
+                      with open(metadata_file, 'r') as f:
+                          metadata = json.load(f)
+                      if not isinstance(metadata, dict):
+                          errors.append(f'Metadata {prompt_dir.name}/metadata.json is not a valid JSON object')
+                      if 'version' not in metadata:
+                          errors.append(f'Metadata {prompt_dir.name}/metadata.json missing version field')
+                  except Exception as e:
+                      errors.append(f'Failed to parse metadata {prompt_dir.name}/metadata.json: {e}')
+          
+          # Report errors
+          if errors:
+              for error in errors:
+                  print(f'ERROR: {error}')
+              sys.exit(1)
+          else:
+              print('All prompts validated successfully')
+          "
+
+  test-prompts:
+    runs-on: ubuntu-latest
+    needs: validate-prompts
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pytest pytest-cov
+          
+      - name: Run prompt manager tests
+        run: |
+          pytest tests/unit/utils/test_prompt_management.py -v
+
+  sync-to-langfuse:
+    runs-on: ubuntu-latest
+    needs: test-prompts
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    environment: ${{ github.event.inputs.environment || 'development' }}
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          
+      - name: Sync prompts to Langfuse
+        env:
+          LANGFUSE_API_KEY: ${{ secrets.LANGFUSE_API_KEY }}
+          LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
+          LANGFUSE_HOST: ${{ secrets.LANGFUSE_HOST || 'https://cloud.langfuse.com' }}
+          ENVIRONMENT: ${{ github.event.inputs.environment || 'development' }}
+        run: |
+          python -c "
+          import os
+          import json
+          from llm_ops_pipeline.utils.prompt_management import PromptManager
+          
+          # Initialize PromptManager with environment
+          pm = PromptManager(
+              langfuse_api_key=os.environ.get('LANGFUSE_API_KEY'),
+              langfuse_secret_key=os.environ.get('LANGFUSE_SECRET_KEY'),
+              langfuse_host=os.environ.get('LANGFUSE_HOST'),
+              environment=os.environ.get('ENVIRONMENT', 'development')
+          )
+          
+          if not pm.langfuse_available:
+              print('Langfuse credentials not available, skipping sync')
+              exit(0)
+          
+          # List all prompts in the repository
+          prompts = pm.list_prompts()
+          print(f'Found {len(prompts)} prompts in the repository')
+          
+          # For each prompt from disk, create or update in Langfuse
+          for prompt in prompts:
+              if prompt['source'] == 'git':
+                  prompt_id = prompt['id']
+                  prompt_data = pm._load_prompt_from_disk(prompt_id)
+                  if prompt_data:
+                      print(f'Syncing prompt {prompt_id} to Langfuse')
+                      try:
+                          # Try to get existing prompt from Langfuse
+                          try:
+                              existing = pm.langfuse.prompts.get(prompt_id)
+                              # Update existing prompt
+                              version = pm.langfuse.prompts.create_version(
+                                  prompt_name=prompt_id,
+                                  prompt=prompt_data['content'],
+                                  name=f'v{prompt_data.get(\"metadata\", {}).get(\"version\", \"1.0.0\")}',
+                                  is_active=True
+                              )
+                              print(f'  Updated prompt {prompt_id} in Langfuse')
+                          except:
+                              # Create new prompt
+                              new_prompt = pm.langfuse.prompts.create(
+                                  name=prompt_id,
+                                  description=prompt_data.get('metadata', {}).get('description', '')
+                              )
+                              version = pm.langfuse.prompts.create_version(
+                                  prompt_name=prompt_id,
+                                  prompt=prompt_data['content'],
+                                  name=f'v{prompt_data.get(\"metadata\", {}).get(\"version\", \"1.0.0\")}',
+                                  is_active=True
+                              )
+                              print(f'  Created prompt {prompt_id} in Langfuse')
+                      except Exception as e:
+                          print(f'  Error syncing prompt {prompt_id}: {e}')
+          "
+
+  update-registry:
+    runs-on: ubuntu-latest
+    needs: sync-to-langfuse
+    if: github.event_name == 'workflow_dispatch'
+    environment: ${{ github.event.inputs.environment }}
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          
+      - name: Update registry for environment
+        env:
+          ENVIRONMENT: ${{ github.event.inputs.environment }}
+        run: |
+          python -c "
+          import os
+          import json
+          from pathlib import Path
+          
+          environment = os.environ.get('ENVIRONMENT', 'development')
+          print(f'Updating registry for environment: {environment}')
+          
+          # Load main registry
+          registry_path = Path('prompts/registry/development.json')
+          target_registry_path = Path(f'prompts/registry/{environment}.json')
+          
+          if not registry_path.exists():
+              print(f'Registry file not found: {registry_path}')
+              exit(1)
+              
+          with open(registry_path, 'r') as f:
+              registry = json.load(f)
+              
+          # Create target registry if it doesn't exist
+          if not target_registry_path.exists():
+              target_registry = {}
+          else:
+              with open(target_registry_path, 'r') as f:
+                  target_registry = json.load(f)
+                  
+          # Update target registry with new versions
+          updates = 0
+          for prompt_id, version in registry.items():
+              if prompt_id not in target_registry or target_registry[prompt_id] != version:
+                  target_registry[prompt_id] = version
+                  updates += 1
+                  print(f'  Updating {prompt_id} to version {version}')
+                  
+          # Save target registry
+          with open(target_registry_path, 'w') as f:
+              json.dump(target_registry, f, indent=2)
+              
+          print(f'Updated {updates} prompts in {environment} registry')
+          "
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add prompts/registry/
+          git commit -m "Update prompt registry for ${{ github.event.inputs.environment }}" || echo "No changes to commit"
+          git push
