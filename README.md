@@ -4,11 +4,13 @@ A comprehensive MLOps pipeline for Large Language Models, supporting the entire 
 
 ## Features
 
-- Data preparation and versioning
+- Data preparation and versioning with DVC
 - Model training with experiment tracking through MLflow and Weights & Biases
-- Model evaluation and testing with standardized metrics
+- Comprehensive prompt engineering and evaluation framework
+- LLM-specific evaluation metrics and visualization
 - Model deployment and serving via FastAPI
-- Inference monitoring with Prometheus and Grafana
+- Advanced monitoring and observability with Prometheus and Grafana
+- Prompt management and versioning with Langfuse
 - CI/CD integration
 
 ## Getting Started
@@ -193,7 +195,43 @@ If you encounter issues with the GitHub Actions workflow:
 
 ## End-to-End Workflow Examples
 
-### 1. Fine-tuning an LLM for Classification
+### 1. Prompt Engineering and Evaluation
+
+This example shows how to use the prompt engineering and evaluation framework:
+
+```bash
+# Generate prompt candidates
+python workflows/prompt_tuning_example/scripts/generate_prompt_candidates.py \
+  --config workflows/prompt_tuning_example/configs/prompt_generation_config.yaml \
+  --output-file prompts/candidates.json
+
+# Evaluate prompt candidates
+python scripts/evaluate_llm.py \
+  --mode prompt \
+  --dataset data/processed/validation.json \
+  --prompts prompts/candidates.json \
+  --model-id gpt-3.5-turbo \
+  --task-type classification \
+  --use-mlflow \
+  --use-langfuse
+
+# Using Gemini with MLflow autologging
+python workflows/prompt_tuning_example/scripts/gemini_evaluation_example.py \
+  --config workflows/prompt_tuning_example/configs/evaluation_config.yaml \
+  --dataset data/processed/validation.json \
+  --prompts prompts/candidates.json \
+  --model-id gemini-1.5-flash \
+  --use-mlflow \
+  --api-key $GOOGLE_API_KEY
+
+# Deploy best prompt to production
+python workflows/prompt_tuning_example/scripts/deploy_to_production.py \
+  --prompt-id best_prompt \
+  --model-id gpt-3.5-turbo \
+  --environment production
+```
+
+### 2. Fine-tuning an LLM for Classification
 
 This example shows how to fine-tune a pre-trained model for a classification task:
 
@@ -290,13 +328,27 @@ llm_ops_pipeline/
 ├── training/        # Training pipelines and utilities
 ├── inference/       # Inference and serving code
 ├── evaluation/      # Evaluation metrics and tests
+│   └── llm_evaluation_framework.py # Comprehensive LLM evaluation framework
 ├── utils/           # Shared utilities
+│   └── prompt_management.py # Prompt versioning with Langfuse integration
 ├── config/          # Configuration management
 └── api/             # API for model serving
+
+workflows/
+├── compliance_detection/   # Example workflow for compliance detection
+└── prompt_tuning_example/  # End-to-end prompt engineering workflow
+
+docs/
+├── evaluation_framework_guide.md # Documentation for using the evaluation framework
+└── prompt_management.md   # Guide for prompt versioning and management
 
 tests/
 ├── unit/            # Unit tests
 └── integration/     # Integration tests
+
+monitoring/
+├── grafana/         # Grafana dashboards for LLM metrics
+└── prometheus.yml   # Prometheus configuration
 ```
 
 ## Setting Up CI/CD with Google Cloud and GitHub

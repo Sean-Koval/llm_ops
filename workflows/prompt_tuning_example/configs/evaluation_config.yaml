@@ -1,0 +1,182 @@
+# Evaluation Framework Configuration
+
+# Experiment Tracking
+experiment_name: "prompt_tuning_example"
+environment: "development"
+
+# MLflow Configuration
+mlflow:
+  tracking_uri: "http://localhost:5000"
+  experiment_name: "prompt_tuning_example"
+  run_name_prefix: "eval_"
+  register_models: true
+  tags:
+    workflow: "prompt_tuning"
+    version: "1.0"
+
+# Langfuse Configuration
+langfuse:
+  host: "https://cloud.langfuse.com"  # Set to your self-hosted instance if applicable
+  # API keys should be set as environment variables
+  # LANGFUSE_API_KEY and LANGFUSE_SECRET_KEY
+  enable_trace_hooks: true
+  default_tags:
+    - "prompt_tuning"
+    - "mlops_pipeline"
+
+# DVC Configuration
+dvc:
+  repo: "."  # Current repository
+  remote: "default"
+  track_datasets: true
+  track_metrics: true
+
+# Model Providers
+model_providers:
+  openai:
+    default_model: "gpt-3.5-turbo"
+    available_models:
+      - "gpt-3.5-turbo"
+      - "gpt-4"
+    default_parameters:
+      temperature: 0.0
+      max_tokens: 1024
+      top_p: 1.0
+
+  vertexai:
+    default_model: "gemini-1.0-pro"
+    available_models:
+      - "gemini-1.0-pro"
+      - "gemini-1.5-pro"
+      - "gemini-1.5-flash"
+      - "gemini-ultra"
+    default_parameters:
+      temperature: 0.0
+      max_output_tokens: 1024
+      top_p: 0.95
+      top_k: 40
+
+# Gemini configuration for MLflow autologging
+gemini:
+  # Use environment variable GOOGLE_API_KEY or set directly
+  # api_key: "YOUR_API_KEY"
+  
+  # For Vertex AI (alternatively use environment variables GOOGLE_CLOUD_PROJECT, GOOGLE_CLOUD_LOCATION)
+  # project_id: "your-project-id"
+  # location: "us-central1"
+  
+  # Logging configuration
+  log_inputs: true
+  log_outputs: true
+  log_metrics: true
+  log_parameters: true
+  
+  # Models available through autologging
+  models:
+    - "gemini-1.0-pro"
+    - "gemini-1.0-pro-vision"
+    - "gemini-1.5-pro"
+    - "gemini-1.5-flash"
+    - "gemini-1.0-ultra"
+
+# Evaluation Settings
+evaluation:
+  default_task_type: "classification"
+  default_metric: "f1_macro"
+  sample_size: 100  # Default sample size for evaluation
+  batch_size: 1     # Default batch size for inference
+  higher_is_better: true  # For default metric
+  
+  # Classification Metrics
+  classification_metrics:
+    - "accuracy"
+    - "precision_macro"
+    - "recall_macro"
+    - "f1_macro"
+    - "confusion_matrix"
+  
+  # Generation Metrics
+  generation_metrics:
+    - "bleu"
+    - "rouge1_f"
+    - "rouge2_f"
+    - "rougeL_f"
+
+  # Performance Metrics
+  performance_metrics:
+    - "latency_ms"
+    - "token_usage.prompt_tokens"
+    - "token_usage.completion_tokens"
+    - "token_usage.total_tokens"
+    - "cost_estimate_usd"
+
+  # Cost Estimation (per 1000 tokens)
+  cost_per_1k_tokens:
+    "gpt-3.5-turbo":
+      input: 0.0015
+      output: 0.002
+    "gpt-4":
+      input: 0.03
+      output: 0.06
+    "gemini-1.0-pro":
+      input: 0.00125
+      output: 0.00375
+    "gemini-ultra":
+      input: 0.0125
+      output: 0.0375
+
+# Visualization Settings
+visualization:
+  default_plots:
+    - "confusion_matrix"
+    - "metrics_comparison"
+    - "latency_comparison"
+    - "token_usage_comparison"
+  
+  confusion_matrix:
+    colormap: "Blues"
+    figsize: [10, 8]
+  
+  comparison_plots:
+    figsize: [12, 6]
+    include_error_bars: true
+
+# Reporting
+reporting:
+  formats:
+    - "json"
+    - "markdown"
+    - "html"
+  include_plots: true
+  include_examples: true
+  max_examples: 20
+
+# Human Evaluation
+human_evaluation:
+  metrics:
+    - name: "correctness"
+      description: "Is the answer factually correct?"
+      scale: [1, 5]
+    - name: "helpfulness"
+      description: "How helpful is this response to the user?"
+      scale: [1, 5]
+    - name: "preferred"
+      description: "Which option do you prefer?"
+      type: "binary_choice"
+
+# Prompt Versions Management
+prompt_management:
+  environments:
+    - "development"
+    - "staging" 
+    - "production"
+  versioning_strategy: "semantic"  # semantic, date, or incremental
+  registry_path: "prompts/registry"
+  
+# Dataset Management
+dataset_management:
+  validation_split: 0.2
+  test_split: 0.1
+  stratify: true
+  random_seed: 42
+  version_datasets: true

@@ -1,0 +1,42 @@
+# Prompt Generation Configuration
+
+# Task details
+task_description: "customer support ticket classification"
+input_field: "ticket_text"
+output_field: "category"
+
+# Categories and descriptions
+classes:
+  - "billing"
+  - "technical_issue"
+  - "account_management"
+  - "feature_request"
+  - "general_inquiry"
+
+class_descriptions:
+  "billing": "Questions or issues related to billing, charges, refunds, payment methods, or pricing plans."
+  "technical_issue": "Problems with the product functionality, bugs, errors, or service disruptions that require technical support."
+  "account_management": "Requests to create, modify, or delete accounts, change account settings, or update personal information."
+  "feature_request": "Suggestions for new features, improvements to existing features, or requests for additional capabilities."
+  "general_inquiry": "General questions about the product, service, or company that don't fit into other categories."
+
+# Few-shot examples selection criteria
+example_selection:
+  strategy: "balanced"  # balanced, representative, or diverse
+  examples_per_category: 1
+  total_examples: 5
+  include_edge_cases: true
+
+# Prompt strategy weights
+strategy_weights:
+  basic: 1.0
+  detailed: 1.5
+  few_shot: 2.0
+  chain_of_thought: 1.5
+  structured_output: 1.5
+
+# Output format
+output_format:
+  style: "json"  # json or yaml
+  add_metadata: true
+  include_descriptions: true
